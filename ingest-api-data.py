@@ -7,7 +7,7 @@ on:
    workflow_dispatch:
 #on:
  # schedule:
-  #   - cron: '45 * * * *'  # Runs every 45th min
+ #    - cron: '45 * * * *'  # Runs every 45th min
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -16,9 +16,10 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    steps:
+     steps:
       - uses: actions/checkout@v3
-       # Set up Python 3.8
+
+      # Set up Python 3.8
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
@@ -26,15 +27,24 @@ jobs:
 
       # Install pip and dependencies
       - name: Install dependencies
-      - run: |
+        run: |
           home_dir=$(pwd)
-          echo $home_dir
+          echo "Home directory: $home_dir"
           echo -----------------------------------------------------------------------
-          pip install --upgrade pip    
+          pip install --upgrade pip  # Upgrade pip
           echo -----------------------------------------------------------------------
-          pip install "snowflake-snowpark-python[pandas]"
+          
+          # Install a specific version of snowflake-snowpark-python (compatible with Python 3.8)
+          pip install "snowflake-snowpark-python==1.4.0"  # Specific version for Python 3.8
+          # If you need pandas, install it separately:
+          pip install pandas
+
           echo -----------------------------------------------------------------------
           ls -la
           pwd
-          echo ----------------------------------------------------------------------- 
+          echo -----------------------------------------------------------------------
+          
+      # Run the Python script
+      - name: Run ingest-api-data.py
+        run: |
           python $home_dir/ingest-api-data.py
