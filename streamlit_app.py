@@ -1,7 +1,7 @@
 # Import python packages
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as pt
+
 
 from snowflake.snowpark.context import get_active_session
 
@@ -93,11 +93,11 @@ if (date_option is not None):
 
 
     # histogram using Matplotlib
-    st.subheader("Histogram for CO Levels")
-    pt.figure(figsize=(10, 6))
-    pt.hist(pd_df['CO'], bins=10, color='red', edgecolor='black', alpha=0.7,orientation='horizontal')
-    pt.title('Distribution of CO Levels')
-    pt.xlabel('Frequency')
-    pt.ylabel('CO')
-    pt.xticks(range(24)) 
-    st.pyplot(pt)
+    # st.subheader("Histogram for CO Levels")
+    # pt.figure(figsize=(10, 6))
+    # pt.hist(pd_df['CO'], bins=10, color='red', edgecolor='black', alpha=0.7,orientation='horizontal')
+    # pt.title('Distribution of CO Levels')
+    # pt.xlabel('Frequency')
+    # pt.ylabel('CO')
+    # pt.xticks(range(24)) 
+    # st.pyplot(pt)
