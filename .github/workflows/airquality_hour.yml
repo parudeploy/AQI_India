@@ -1,13 +1,12 @@
-# This is a basic workflow to help you get started with Actions
 name: india_air_quality_json
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-   workflow_dispatch:
-#on:
-#  schedule:
-#     - cron: '45 * * * *'  # Runs every 45th min
+  # Trigger the workflow manually through GitHub UI
+  workflow_dispatch:
+  # Uncomment below for cron job
+  # schedule:
+  #   - cron: '45 * * * *'  # Runs every 45th minute
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -16,7 +15,8 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-     steps:
+    # Steps to run in the "build" job
+    steps:
       # Checkout the code from the repository
       - uses: actions/checkout@v3
 
