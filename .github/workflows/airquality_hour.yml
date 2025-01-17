@@ -29,8 +29,7 @@ jobs:
       # Install pip and dependencies
       - name: Install dependencies
         run: |
-          home_dir=$(pwd)
-          echo "Home directory: $home_dir"
+          echo "Home directory: $GITHUB_WORKSPACE"
           echo -----------------------------------------------------------------------
           pip install --upgrade pip  # Upgrade pip
           echo -----------------------------------------------------------------------
@@ -49,4 +48,4 @@ jobs:
       # Run the Python script
       - name: Run ingest-api-data.py
         run: |
-          python $home_dir/ingest-api-data.py
+          python $GITHUB_WORKSPACE/ingest-api-data.py
