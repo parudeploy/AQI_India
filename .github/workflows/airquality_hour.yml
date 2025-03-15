@@ -5,8 +5,8 @@ on:
   # Trigger the workflow manually through GitHub UI
   #workflow_dispatch:
   # Uncomment below for cron job
-   schedule:
-     - cron: '0 0 * * *'  # Runs every day
+  # schedule:
+  #  - cron: '0 0 * * *'  # Runs every day
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
